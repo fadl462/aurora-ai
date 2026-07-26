@@ -619,6 +619,199 @@
   }
   .status-active { background: rgba(76,224,179,0.12); color: var(--aurora-1); }
   .status-idle { background: var(--surface-raised); color: var(--text-faint); }
+
+  /* ---------- Canvas view ---------- */
+  .canvas-wrap { display: flex; flex-direction: column; height: 100%; }
+  .canvas-tabs {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--border-soft);
+    flex-shrink: 0;
+  }
+  .canvas-tab {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 12.5px; font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+  }
+  .canvas-tab:hover { background: var(--surface-raised); }
+  .canvas-tab.active { background: var(--surface-raised); color: var(--text); }
+  .canvas-tab .dot-status {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--aurora-1);
+  }
+  .canvas-add-tab {
+    width: 26px; height: 26px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: var(--radius-sm);
+    color: var(--text-faint);
+    cursor: pointer;
+    margin-left: 4px;
+  }
+  .canvas-add-tab:hover { background: var(--surface-raised); color: var(--text); }
+
+  .canvas-panels {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 0;
+  }
+  .canvas-panel {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    border-right: 1px solid var(--border-soft);
+  }
+  .canvas-panel:last-child { border-right: none; }
+  .canvas-panel-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border-soft);
+    flex-shrink: 0;
+  }
+  .canvas-panel-label {
+    font-size: 11.5px; font-weight: 600;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .canvas-panel-body { flex: 1; overflow-y: auto; padding: 18px 20px; }
+
+  .canvas-doc h4 {
+    font-family: var(--font-display);
+    font-size: 16px; font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .canvas-doc p { font-size: 13.5px; color: var(--text-muted); line-height: 1.7; margin-bottom: 12px; }
+  .canvas-doc .edit-highlight {
+    background: rgba(76,224,179,0.14);
+    color: var(--text);
+    padding: 1px 3px;
+    border-radius: 3px;
+  }
+
+  .canvas-diagram-box {
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-md);
+    padding: 30px 20px;
+    text-align: center;
+  }
+  .flow-node {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 12.5px;
+    font-weight: 500;
+    margin: 6px;
+  }
+  .flow-arrow { color: var(--text-faint); font-size: 14px; margin: 0 4px; }
+
+  /* ---------- Agent console ---------- */
+  .console-wrap { max-width: 880px; margin: 0 auto; padding: 28px 32px 60px 32px; }
+  .console-back {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 12.5px; color: var(--text-faint);
+    cursor: pointer; margin-bottom: 18px;
+  }
+  .console-back:hover { color: var(--text); }
+
+  .console-header { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+  .console-avatar {
+    width: 46px; height: 46px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 600; flex-shrink: 0;
+  }
+  .console-name { font-family: var(--font-display); font-size: 20px; font-weight: 600; }
+  .console-desc { font-size: 13px; color: var(--text-muted); margin-top: 3px; }
+
+  .console-tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--border-soft); margin-bottom: 22px; }
+  .console-tab {
+    padding: 9px 4px; margin-right: 20px;
+    font-size: 13px; font-weight: 500; color: var(--text-faint);
+    cursor: pointer; border-bottom: 2px solid transparent;
+  }
+  .console-tab.active { color: var(--text); border-bottom-color: var(--accent); }
+
+  .console-field { margin-bottom: 20px; }
+  .console-field-label {
+    font-size: 11.5px; font-weight: 600; color: var(--text-faint);
+    text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;
+  }
+  .console-prompt-box {
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .tool-chip-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tool-chip {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 500;
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    padding: 6px 11px;
+    border-radius: 20px;
+  }
+  .tool-chip .tier-dot { width: 6px; height: 6px; border-radius: 50%; }
+  .tier-read { background: var(--aurora-1); }
+  .tier-low { background: var(--aurora-2); }
+  .tier-medium { background: var(--warning); }
+  .tier-high { background: var(--aurora-4); }
+
+  .run-row {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .run-row:last-child { border-bottom: none; }
+  .run-status-icon {
+    width: 26px; height: 26px; border-radius: 7px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .run-status-icon.done { background: rgba(76,224,179,0.12); color: var(--aurora-1); }
+  .run-status-icon.pending { background: rgba(224,179,76,0.12); color: var(--warning); }
+  .run-title { font-size: 13px; font-weight: 500; }
+  .run-meta { font-size: 11.5px; color: var(--text-faint); }
+  .run-time { margin-left: auto; font-size: 11.5px; color: var(--text-faint); flex-shrink: 0; }
+
+  .approval-card {
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+  .approval-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+  .approval-tier-label {
+    font-size: 10.5px; font-weight: 600;
+    color: var(--warning);
+    display: flex; align-items: center; gap: 5px;
+  }
+  .approval-action { font-size: 13px; font-weight: 500; margin-bottom: 10px; }
+  .approval-btns { display: flex; gap: 8px; }
+  .btn-approve, .btn-deny {
+    flex: 1; text-align: center;
+    font-size: 12.5px; font-weight: 600;
+    padding: 7px 0; border-radius: var(--radius-sm);
+    cursor: pointer; border: none;
+  }
+  .btn-approve { background: var(--accent); color: #0B0D12; }
+  .btn-approve:hover { background: #6C99FF; }
+  .btn-deny { background: var(--surface-raised); color: var(--text-muted); border: 1px solid var(--border); }
+  .btn-deny:hover { color: var(--text); }
 </style>
 </head>
 <body>
@@ -645,7 +838,7 @@
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
       Chat
     </div>
-    <div class="nav-item">
+    <div class="nav-item" data-view="canvas" onclick="showView('canvas')">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18M3 9v10a2 2 0 0 0 2 2h4"/></svg>
       Canvas
     </div>
@@ -941,7 +1134,11 @@
         </div>
 
         <div class="agents-grid">
-          <div class="agent-card">
+          <div class="agent-card" onclick="openConsole(this)"
+               data-name="Researcher"
+               data-desc="Multi-source search, citation, and fact-checking for open-ended questions."
+               data-color="rgba(76,224,179,0.12)" data-fg="var(--aurora-1)" data-letter="R"
+               data-status="Active">
             <div class="agent-avatar" style="background: rgba(76,224,179,0.12); color: var(--aurora-1);">R</div>
             <div class="agent-name">Researcher</div>
             <div class="agent-desc">Multi-source search, citation, and fact-checking for open-ended questions.</div>
@@ -950,7 +1147,11 @@
               <span class="agent-status status-active">Active</span>
             </div>
           </div>
-          <div class="agent-card">
+          <div class="agent-card" onclick="openConsole(this)"
+               data-name="Developer"
+               data-desc="Code generation, debugging, and PR review scoped to connected repos."
+               data-color="rgba(91,140,255,0.12)" data-fg="var(--aurora-2)" data-letter="D"
+               data-status="Active">
             <div class="agent-avatar" style="background: rgba(91,140,255,0.12); color: var(--aurora-2);">D</div>
             <div class="agent-name">Developer</div>
             <div class="agent-desc">Code generation, debugging, and PR review scoped to connected repos.</div>
@@ -959,7 +1160,11 @@
               <span class="agent-status status-active">Active</span>
             </div>
           </div>
-          <div class="agent-card">
+          <div class="agent-card" onclick="openConsole(this)"
+               data-name="Outreach Manager"
+               data-desc="Drafts and tracks cold outreach sequences with follow-up cadence."
+               data-color="rgba(179,127,255,0.12)" data-fg="var(--aurora-3)" data-letter="O"
+               data-status="Idle">
             <div class="agent-avatar" style="background: rgba(179,127,255,0.12); color: var(--aurora-3);">O</div>
             <div class="agent-name">Outreach Manager</div>
             <div class="agent-desc">Drafts and tracks cold outreach sequences with follow-up cadence.</div>
@@ -968,7 +1173,11 @@
               <span class="agent-status status-idle">Idle</span>
             </div>
           </div>
-          <div class="agent-card">
+          <div class="agent-card" onclick="openConsole(this)"
+               data-name="Data Analyst"
+               data-desc="SQL, spreadsheet cleanup, and dashboard generation from raw exports."
+               data-color="rgba(255,111,168,0.12)" data-fg="var(--aurora-4)" data-letter="A"
+               data-status="Idle">
             <div class="agent-avatar" style="background: rgba(255,111,168,0.12); color: var(--aurora-4);">A</div>
             <div class="agent-name">Data Analyst</div>
             <div class="agent-desc">SQL, spreadsheet cleanup, and dashboard generation from raw exports.</div>
@@ -977,7 +1186,11 @@
               <span class="agent-status status-idle">Idle</span>
             </div>
           </div>
-          <div class="agent-card">
+          <div class="agent-card" onclick="openConsole(this)"
+               data-name="Proposal Writer"
+               data-desc="Drafts technical and financial proposals from a brief and past templates."
+               data-color="rgba(224,179,76,0.12)" data-fg="var(--warning)" data-letter="P"
+               data-status="Idle">
             <div class="agent-avatar" style="background: rgba(224,179,76,0.12); color: var(--warning);">P</div>
             <div class="agent-name">Proposal Writer</div>
             <div class="agent-desc">Drafts technical and financial proposals from a brief and past templates.</div>
@@ -993,10 +1206,163 @@
         </div>
       </div>
     </section>
+
+    <!-- CANVAS VIEW -->
+    <section class="view" id="view-canvas">
+      <div class="canvas-wrap">
+        <div class="canvas-tabs">
+          <div class="canvas-tab active">
+            <span class="dot-status"></span>
+            Chat
+          </div>
+          <div class="canvas-tab">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+            GAYO_dashboard_brief.md
+          </div>
+          <div class="canvas-tab">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            Data flow
+          </div>
+          <div class="canvas-add-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </div>
+        </div>
+
+        <div class="canvas-panels">
+          <div class="canvas-panel">
+            <div class="canvas-panel-header">
+              <div class="canvas-panel-label">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5A8.38 8.38 0 0 1 8.7 19L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 8.5-8.5h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                Chat
+              </div>
+            </div>
+            <div class="canvas-panel-body">
+              <div class="msg user" style="margin-bottom:20px;">
+                <div class="msg-avatar" style="width:24px;height:24px;font-size:10px;">FE</div>
+                <div class="msg-body">
+                  <div class="msg-text"><p style="font-size:13.5px;">Turn this into a two-paragraph brief for the client and pull the waste-volume numbers into a simple flow diagram.</p></div>
+                </div>
+              </div>
+              <div class="msg assistant">
+                <div class="msg-avatar" style="width:24px;height:24px;"></div>
+                <div class="msg-body">
+                  <div class="msg-text"><p style="font-size:13.5px;">Done — edits are highlighted in the document panel, and the intake→sort→dispose flow is on the right. Let me know if the volume figures need a source note.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="canvas-panel">
+            <div class="canvas-panel-header">
+              <div class="canvas-panel-label">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+                Document
+              </div>
+            </div>
+            <div class="canvas-panel-body canvas-doc">
+              <h4>GAYO Environmental Intelligence — Client Brief</h4>
+              <p>The platform now ingests <span class="edit-highlight">4,200 tonnes/month</span> of waste data across 3 collection zones, up from manual quarterly reporting. Real-time dashboards give operations visibility they didn't previously have.</p>
+              <p><span class="edit-highlight">Diversion rate improved from 31% to 44%</span> over the pilot period, driven mainly by better sort-stage routing rather than collection volume changes.</p>
+              <div class="canvas-diagram-box" style="margin-top:20px;">
+                <span class="flow-node">Intake</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-node">Sort</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-node">Divert / Dispose</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AGENT CONSOLE VIEW -->
+    <section class="view" id="view-agent-console">
+      <div class="console-wrap">
+        <div class="console-back" onclick="showView('agents')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+          Back to Agents
+        </div>
+
+        <div class="console-header">
+          <div class="console-avatar" id="console-avatar">R</div>
+          <div>
+            <div class="console-name" id="console-name">Researcher</div>
+            <div class="console-desc" id="console-desc">Multi-source search, citation, and fact-checking for open-ended questions.</div>
+          </div>
+        </div>
+
+        <div class="console-tabs">
+          <div class="console-tab active" onclick="showConsoleTab(this,'config')">Configuration</div>
+          <div class="console-tab" onclick="showConsoleTab(this,'runs')">Run history</div>
+          <div class="console-tab" onclick="showConsoleTab(this,'approvals')">Approvals <span class="badge" style="margin-left:4px;">1</span></div>
+        </div>
+
+        <div id="console-tab-config">
+          <div class="console-field">
+            <div class="console-field-label">System prompt</div>
+            <div class="console-prompt-box">You are a research agent. Search web, academic, and news sources for the user's query. Always cite sources and return a confidence score. Never fabricate a source. Prefer primary sources over aggregators when both are available.</div>
+          </div>
+          <div class="console-field">
+            <div class="console-field-label">Allowed tools &amp; approval tier</div>
+            <div class="tool-chip-row">
+              <span class="tool-chip"><span class="tier-dot tier-read"></span> web_search</span>
+              <span class="tool-chip"><span class="tier-dot tier-read"></span> academic_search</span>
+              <span class="tool-chip"><span class="tier-dot tier-read"></span> pdf_extract</span>
+              <span class="tool-chip"><span class="tier-dot tier-low"></span> save_to_knowledge_vault</span>
+            </div>
+          </div>
+          <div class="console-field">
+            <div class="console-field-label">Model preference</div>
+            <div class="tool-chip-row">
+              <span class="tool-chip"><span class="dot" style="width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,var(--aurora-1),var(--aurora-3));"></span> Auto Mode — optimized for research depth</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="console-tab-runs" style="display:none;">
+          <div class="run-row">
+            <div class="run-status-icon done"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></div>
+            <div>
+              <div class="run-title">Competitor pricing — AI orchestration platforms</div>
+              <div class="run-meta">5 sources · high confidence</div>
+            </div>
+            <div class="run-time">2m ago</div>
+          </div>
+          <div class="run-row">
+            <div class="run-status-icon done"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></div>
+            <div>
+              <div class="run-title">GTVP tracer study — misclassification audit sources</div>
+              <div class="run-meta">9 sources · moderate confidence</div>
+            </div>
+            <div class="run-time">Yesterday</div>
+          </div>
+          <div class="run-row">
+            <div class="run-status-icon pending"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+            <div>
+              <div class="run-title">Ghana teacher deployment governance — literature scan</div>
+              <div class="run-meta">Running · 3 sources so far</div>
+            </div>
+            <div class="run-time">Now</div>
+          </div>
+        </div>
+
+        <div id="console-tab-approvals" style="display:none;">
+          <div class="approval-card">
+            <div class="approval-top">
+              <span class="approval-tier-label"><span class="tier-dot tier-medium" style="width:6px;height:6px;border-radius:50%;"></span> MEDIUM RISK — WRITE ACTION</span>
+            </div>
+            <div class="approval-action">save_to_knowledge_vault("GTVP misclassification findings — 493 records")</div>
+            <div class="approval-btns">
+              <button class="btn-approve">Approve</button>
+              <button class="btn-deny">Deny</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 </div>
-
-<script>
   function showView(name) {
     document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
     document.getElementById('view-' + name).classList.add('active');
@@ -1007,9 +1373,32 @@
       dashboard: 'Dashboard',
       chat: 'Chat · Competitor pricing',
       research: 'Research · Competitor pricing',
-      agents: 'Agents'
+      agents: 'Agents',
+      canvas: 'Canvas · GAYO client brief',
+      'agent-console': 'Agents · ' + (window.__consoleAgentName || 'Researcher')
     };
     document.getElementById('breadcrumb').innerHTML = '<strong>' + labels[name] + '</strong>';
+  }
+
+  function openConsole(card) {
+    const d = card.dataset;
+    window.__consoleAgentName = d.name;
+    document.getElementById('console-name').textContent = d.name;
+    document.getElementById('console-desc').textContent = d.desc;
+    const avatar = document.getElementById('console-avatar');
+    avatar.textContent = d.letter;
+    avatar.style.background = d.color;
+    avatar.style.color = d.fg;
+    showConsoleTab(document.querySelector('.console-tab'), 'config');
+    showView('agent-console');
+  }
+
+  function showConsoleTab(tabEl, name) {
+    document.querySelectorAll('.console-tab').forEach(t => t.classList.remove('active'));
+    tabEl.classList.add('active');
+    ['config', 'runs', 'approvals'].forEach(n => {
+      document.getElementById('console-tab-' + n).style.display = (n === name) ? 'block' : 'none';
+    });
   }
 </script>
 
